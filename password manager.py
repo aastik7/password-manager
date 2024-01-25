@@ -30,6 +30,11 @@ fer = Fernet(key)
 master_password = get_master_password()
 
 def view():
+    master_input = getpass("Enter your master password: ")
+    if master_input != master_password:
+        print("Incorrect master password. Access denied.")
+        return
+
     try:
         with open("password.txt", "r") as f:
             for line in f.readlines():
